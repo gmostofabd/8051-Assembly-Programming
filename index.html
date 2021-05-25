@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="utf-8">
+	<meta name="Keywords" content="Microcontroller,8051,Assembly,Programming,Code,Proteus">
+	<title>8051 Assembly</title>
+</head>
+
+
+<body  bgcolor=white>
+
+	<div id="header_common"><img src="assets/images/github_banner.png" alt="common_header"></div>
+	<div id="topic_container"><h2>Theory - 04: 8051 Microcontroller Assembly Programming</h2></div>
+
+
+  <table align = center width=1000 height=1000  bgcolor= white>
+	  <tr>
+	    <td width=200 bgcolor=white valign=top>
+
+		    <div id="exp_lst_cont">
+          <h3>Theories :</h3>
+          <ul class="ul_exp">
+            <li><a href="https://gmostofabd.github.io/8051-LED/">Introduction to Microcontroller</a></li>
+            <li><a href="https://gmostofabd.github.io/8051-Push-Button/">8051 Architecture</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-7Segment/">8051 Instruction Set</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LED-Matrix/">Assembly Programming</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LCD/">Development Tools & Environment</a></li>
+          </ul>
+
+          <h3>Experiments :</h3>
+            <ul class="ul_exp">
+              <li><a href="https://gmostofabd.github.io/8051-LED/">LED Blink</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Push-Button/">Push Button Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-7Segment/">Seven Segment Display Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LED-Matrix/">LED Dot Matrix Display Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LCD/">LCD Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Analog/">Potentiometer (or Analog) Reading</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Keypad/">Key Pad Matrix Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/dc-motor-8051/">DC Motor Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/stepper-motor-8051/">Stepper Motor Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-RTC/">RTC Interfacing</a></li>
+            </ul>
+        </div>
+
+        <div id="proj_lst_cont">
+            <ol><h3>8051 Projects:</h3>
+              <li>Access Control System</li>
+              <li>6 Digit Clock</li>
+              <li>IR Remote Load ON OFF</li>
+              <li>Line Follower</li>
+              <li>Incubator Controller</li>
+            </ol>
+        </div>         
+
+    </td>
+
+
+	  <td width=600 align=center valign=top bgcolor= white>
+		
+		<h3>Introduction:</h3>
+      <blockquote>
+		  <p>
+        Like any language, Programming Languages have certain words, grammar and rules. 
+        Programming in the sense of Microcontrollers (or any computer) means writing a 
+        sequence of instructions that are executed by the processor in a particular 
+        order to perform a predefined task. Programming also involves debugging and 
+        troubleshooting of instructions and instruction sequence to make sure that 
+        the desired task is performed.
+	    </p>
+      </blockquote>
+
+      <h3>Programming Languages</h3>
+
+      <blockquote>
+        <p>
+          There are three types or levels of Programming Languages for 8051 Microcontroller. 
+          These levels are based on how closely the statements in the language resemble the 
+          operations or tasks performed by the Microcontroller.
+        </p>
+      </blockquote>
+      <div class="box_70"><img src="assets/images/programming_language1.jpg"/><span class="capt_cont">Fig: Types of programming language</span></div>
+
+
+      <h3>Machine language</h3>
+      <p>
+        In Machine language or Machine Code, the instructions are written in binary bit patterns i.e. combination of binary digits 1 and 0, 
+        which are stored as HIGH and LOW Voltage Levels. This is the lowest level of programming languages and is the language that a Microcontroller or Microprocessor actually understands.
+      </p>
+      
+      
+
+
+      <h3>Assembly Language</h3>
+      <p>
+        The next level of Programming Language is the Assembly Language. Since Machine 
+        Language or Code involves all the instructions in 1’s and 0’s, it is very difficult 
+        for humans to program using it.
+
+        <br><br>Assembly Language is a pseudo-English representation of the Machine Language. 
+        The 8051 Microcontroller Assembly Language is a combination of English like words 
+        called Mnemonics and Hexadecimal codes.
+        <br><br>It is also a low level language and requires extensive understanding of the 
+        architecture of the Microcontroller.
+      </p>
+
+
+
+        <h3>High-level Language</h3>
+        <blockquote>
+          <p>
+            The name High-level language means that you need not worry about the architecture 
+            or other internal details of a microcontroller and they use words and statements 
+            that are easily understood by humans.
+
+            <br><br>Few examples of High-level Languages are BASIC, C Pascal, C++ and Java. 
+            A program called Compiler will convert the Programs written in High-level 
+            languages to Machine Code.
+          </p>
+        </blockquote>
+
+        <h3>Why Assembly Language?</h3>
+        <p>
+          The name High-level language means that you need not worry about the architecture 
+          or other internal details of a microcontroller and they use words and statements 
+          that are easily understood by humans.
+
+          <br><br>Although High-level languages are easy to work with, the following reasons 
+          point out the advantage of Assembly Language
+        </p>
+        <ul class="ul_gen">
+          <li>The Programs written in Assembly gets executed faster and they occupy less memory.</li>
+          <li>With the help of Assembly Language, you can directly exploit all the features of a Microcontroller.</li>
+          <li>Using Assembly Language, you can have direct and accurate control of all the Microcontroller’s 
+            resources like I/O Ports, RAM, SFRs, etc.</li>
+          <li>Compared to High-level Languages, Assembly Language has less rules and restrictions.</li>
+        </ul>
+
+
+        <h3>Structure of the 8051 Assembly Language</h3>
+        <blockquote>
+          <p>
+            The Structure or Syntax of the 8051 Microcontroller Assembly Language is discussed here. 
+            Each line or statement of the assembly language program of 8051 Microcontroller consists 
+            of three fields: Label, Instruction and Comments.
+
+            <br><br>Before seeing about these three fields, let us first see an example of how a 
+            typical statement or line in an 8051 Microcontroller Assembly Language looks like.
+          </p>
+        </blockquote>
+        <div class="box_50"><img src="assets/images/inst_structure.jpg"/><span class="capt_cont">Fig: 8051 Instruction Structure</span></div>
+        <p>
+          TESTLABEL:   MOV A, 24H   ; THIS IS A SAMPLE COMMENT
+          <br><br>In the above statement, the “TESTLABEL” is the name of the Label, “MOV A, 24H” 
+          is the Instruction and the “THIS IS A SAMPLE COMMENT” is a Comment.
+          <br><br><strong>NOTE:</strong>  The brackets for Label and Comments mean that these fields are optional 
+          and may not be used in all statements in a program.
+        </p>
+
+
+
+
+
+        <h3>Label :</h3>
+
+        <blockquote>
+          <p>
+            The Label is programmer chosen name for a Memory Location or a statement in a program. The Label part of the 
+            statement is optional and if present, the Label must be terminated with a Colon (:).
+
+            <br><br>An important point to remember while selecting a name for the Label is 
+            that they should reduce the need for documentation.
+
+          </p>
+        </blockquote>
+
+        <h3>Instruction :</h3>
+
+        <p>The Instruction is the main part of the 8051 Microcontroller Assembly Language 
+          Programming as it is responsible for the task performed by the Microcontroller. 
+          Any Instruction in the Assembly Language consists of two parts: Op-code and Operand(s).
+        </p>
+
+        <div class="box_50"><img src="assets/images/instr_structure2.jpg"/><span class="capt_cont">Fig: Assembly Language inside 2.</span></div>
+
+        <p>
+          The first part of the Instruction is the Op-code, which is short for Operation Code, 
+          specifies the operation to be performed by the Microcontroller. Op-codes in Assembly 
+          Language are called as Mnemonics. Op-codes are in binary format (used in Machine Language) 
+          while the Mnemonic (which are equivalent to Op-codes) are English like statements.
+
+          <br><br>The second part of the instruction is called the Operand(s) and it represents 
+          the Data on which the operation is performed. There are two types of Operands: the Source 
+          Operand and the Destination Operand. The Source Operand is the Input of the operation 
+          and the Destination Operand is where the result is stored.
+
+          <br><br>The assembly language mnemonics are in the form of op-code, such as MOV, ADD, 
+          JMP, and so on, which are used to perform the operations.
+        </p>
+
+        <div class="box_50"><img src="assets/images/opcode.jpg"/><span class="capt_cont">Fig: Assembly Language Syntax</span></div>
+
+        <p>
+          <strong>Op-code</strong>The op-code is a single instruction that can be executed by the CPU. Here the op-code is a MOV instruction.
+          <br><br><Strong>Operands</Strong> The operands are a single piece of data that can be operated by the op-code. Example, multiplication operation is 
+          performed by the operands that are multiplied by the operand.
+
+          <br><br>Syntax: MUL a,b;
+
+          <br><br><br>
+          <strong>Comments</strong>The last part of the Structure of 8051 Assembly Language is the Comments. Comments are statements included by the 
+          developer for easier understanding of the code and is used for proper documentation of the Program.
+
+          <br><br>Comments are optional and if used, they must begin with a semicolon (;) or double slash (//) depending on the Assembler.
+
+          <br><br>The following statements will show a few possible ways of using Label, Instruction and Comments
+
+          <br><br>Label without instruction and comment:   LABEL:
+          <br>Line with Label and Instruction:             LABEL: MOV A, 22H
+          <br>Line with Instruction and Comment:           MOV A, 22H ; THIS IS A COMMENT
+          <br>Line with Label and Comment:        LABEL:              ; THIS IS A COMMENT
+          <br>Line with only Comment:                                 ; THIS IS A COMMENT
+        </p>
+
+
+
+        <h3>Rules of Assembly Language</h3>
+
+        <ul class="ul_gen">
+          <li>The assembly code must be written in upper case letters</li>
+          <li>The labels must be followed by a colon (label:)</li>
+          <li>All symbols and labels must begin with a letter</li>
+          <li>All comments are typed in lower case</li>
+          <li>The last line of the program must be the END directive</li>
+        </ul>
+
+        <p>The Elements of an  Assembly Language Programming:</p>
+
+        <ul class="ul_gen">
+          <li>Assembler Directives</li>
+          <li>Instruction Set</li>
+          <li>Addressing Modes</li>
+        </ul>
+ 
+        <h3>Assembling and Running an 8051 Program</h3>
+        <div class="box_70"><img src="assets/images/assembler.png"/><span class="capt_cont">Fig: 8051 Programming.</span></div>
+ 
+        <p>
+          Here we will discuss about the basic form of an assembly language. 
+          The steps to create, assemble, and run an assembly language program are as follows:
+
+          <br><br>First, we use an editor to type in a program similar to the above program. 
+          Editors like MS-DOS EDIT program that comes with all Microsoft operating systems 
+          can be used to create or edit a program. The Editor must be able to produce an 
+          ASCII file. The "asm" extension for the source file is used by an assembler in the next step.
+
+          <br><br>The "asm" source file contains the program code created in Step 1. 
+          It is fed to an 8051 assembler. The assembler then converts the assembly language 
+          instructions into machine code instructions and produces an .obj file (object file) 
+          and a .lst file (list file). It is also called as a source file, that's why some 
+          assemblers require that this file have the "src" extensions. The "lst" file is 
+          optional. It is very useful to the program because it lists all the opcodes and 
+          addresses as well as errors that the assemblers detected.
+
+          <br><br>Assemblers require a third step called linking. The link program takes 
+          one or more object files and produces an absolute object file with the extension "abs".
+
+          <br><br>Next, the "abs" file is fed to a program called "OH" (object to hex converter), 
+          which creates a file with the extension "hex" that is ready to burn in to the ROM.
+        </p>
+ 
+ 
+
+
+          <h3>The Elements of an  Assembly Language Programming</h3>
+
+          <ul class="ul_gen">
+            <li>Assembler Directives</li>
+            <li>Instruction Set</li>
+            <li>Addressing Modes</li>
+          </ul>
+  
+
+
+
+          <h3>8051 Microcontroller Assembly Directives</h3>
+          <p>
+            Assembly Language Directives are not the instructions to the 8051 Microcontroller Assembler 
+            even though they are written in the Mnemonic field of the program. Assembly Language 
+            Directives are actually instructions to the Assembler and directs the Assembler Program 
+            what to do during the process of Assembling.
+
+            <br><br>The Assembly Language Directives do not have any effect on the contents of the 
+            8051 Microcontroller Memory (except DB and DW directives). These Directives are dependent 
+            on the Assembler Program and in case of ASM51 Assembler, the following are the categories 
+            of Directives.
+          </p>
+          <div class="box_80"><img src="assets/images/8051-Microcontroller-Assembly-Directives.jpg"/><span class="capt_cont">Fig: Assembly Language Directives.</span></div>
+
+          <p>We will now see about few of the important and frequently used Assembly Language Directives. 
+            The most useful directives are 8051 programming, such as:
+
+            <strong>ORG</strong> (Set Origin)
+            <div class="box_50"><img src="assets/images/syntax_org.jpg"/><span class="capt_cont">Fig: Assembly Language Directives ORG.</span></div>
+
+            <br><br>The 8051 Microcontroller Assembly   Language Program will start assembling 
+            from the Program Memory Address 0000H. This is also the address from which the 8051 
+            Microcontroller will start executing the code.
+
+            <br><br>In order place the Program and Data anywhere in the Address Space of the 
+            8051 Microcontroller, you can use the ORG Directive.
+
+            <br><br><strong>Example:</strong>
+            <br><br>ORG 0000H               ; Tells the Assembler to assemble the next statement at 0000H
+            <br>LJMP MAIN              ; Code Memory at 0000H. Jump to MAIN.
+            <br>ORG 000BH               ; Tells the Assembler to assemble the next statement at 000BH
+            <br>MAIN: NOP               ; Code Memory at 000BH. MAIN starts here.
+
+          </p>
+
+          <div class="box_50"><img src="assets/images/dbstring.jpg"/><span class="capt_cont">Fig: Assembly Language Directives DB</span></div>
+
+          <p>
+            <strong>DB</strong> (Define Byte) <br>
+            The DB Directive is used to define a Byte type variable. Using this directive, 
+            you can define data in Decimal, Binary, HEX or ASCII formats. There should be a 
+            suffix of ‘B’ for binary and ‘H’ for HEX. The ASCII Characters are placed in 
+            single quotation marks (like ‘string’).
+
+            <br><br><strong>Example:</strong>
+            <br><br>ORG 0000H               ; Tells the Assembler to assemble the next statement at 0000H
+            <br>DB 10                         ; Define Byte 10 (Decimal) and store at 0000H
+            <br>DB 30H                      ; Define Byte 30 (HEX) and store at 0001H
+            <br>DB ‘STRING’             ; Define String ‘STRING’ and store at 0002H to 0007H
+            <br>DB 00001111B           ; Define Byte 00001111 (Binary) and store at 0008H
+            <br>DB 1234H                  ; Define Byte 34 (HEX) and store at 0009H. Only lower byte 
+                is accepted as DB can allocate only a Byte of Memory.
+          </p>
+
+
+          <p>
+            <strong>DW</strong> (Define Word) <br>
+            The Define Word (DW) Directive is used to include a 16-bit data in a program. 
+            The functionality of DW is similar to that of DB except that DW generates 16-bit values.
+          </p>
+
+          <p>
+            <strong>EQU</strong> (Equate) <br>
+            Using the EQU Directive, you can associate a Symbol (or Label) with a Value.
+
+            <br><br><strong>Example:</strong>
+            <br><br>TMP EQU #30        ; Assigns the value #30 to the name TMP
+            <br>RED_LED EQU P1.0           ; P1.0 is defined as RED_LED
+          </p>
+
+          <p>
+            <strong>END</strong> <br>
+            The END Directive is used to stop the assembling process. This should be the last statement in 
+            the program. END Directive cannot have a Label and the statements beyond END will not be 
+            processed by the Assembler.
+
+            <br><br><strong>Example:</strong>
+            <br><br>ORG 0000H
+            <br>MOV A, 20H
+            <br>MOV R0, #30
+            <br>END
+          </p>
+
+
+          <h3>Data Type</h3>
+
+          <p>
+            The 8051 microcontroller contains a single data type of 8-bits, 
+            and each register is also of 8-bits size. The programmer has to break down 
+            data larger than 8-bits (00 to FFH, or to 255 in decimal) so that it can 
+            be processed by the CPU.
+          </p>
+
+
+ 
+
+      </td>
+
+	  <td valign=top bgcolor= white>
+		
+      <div class="vdo_lst_cont">
+        <h3>Lesson Video</h3>
+        <iframe width="174" height="120" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      </div>
+
+      <div class="box_this_lesson">
+        <h3>Lesson Includes:</h3>
+        <ul class="ul_right">
+          <li>Introduction</li>
+          <li>Hardware Discussion</li>
+          <li>Circuit Diagram</li>
+          <li>Assembly Code</li>
+          <li>Post Run Discussion</li>
+          <li>Exercises</li>
+          <li>Tips and Tricks</li>
+        </ul>
+      </div>
+
+
+
+      <div class="box_this_lesson">
+          <h3>Important Downloads</h3>
+          <ul class="ul_right">
+            <li>Proteus 8.7</li>
+            <li>MIDE-51 IDE</li>
+            <li>AVRDUDES</li>
+          </ul>
+      </div>
+
+
+      <div class="box_this_lesson">
+          <span><b>Lesson Contents</b></span>
+          <ul class="ul_right">
+              <li>Circuit Diagram (Proteus)</li>
+              <li>Lesson PDF</li>
+              <li>7seg_1d_8051.asm</li>
+              <li>7seg_2d_8051.asm</li>
+              <li>7segment Datasheet PDF</li>
+              <li>Exercise Solutions</li>
+          </ul>
+      </div>
+
+    </td>
+
+
+	</tr>
+         
+  </table>
+
+  <table width=1000 height=50 align= center border="1">
+	  <tr>
+			<td>Prev topic: Push Button Interfacing with 8051</td>
+			<td>Next topic: LED Matrix interfacing with 8051</td>
+		</tr>
+  </table>
+
+	<div id="footer_common">
+
+    <div class="prj_footer_cell">
+      <strong>Top Tutorial sites </strong>
+        <ul class="ul_footer">
+          <li id="active"><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
+          <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
+          <li><a href="http://www.melab-bd.com/product.html"><strong>MikroE</strong></a></li>
+         </ul>
+    </div>
+
+  </div>
+    
+
+</body>
+
+
+</html>
